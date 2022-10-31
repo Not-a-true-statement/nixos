@@ -11,6 +11,7 @@
 #
 
 [
+   ./git.nix
    ./alacritty.nix
    ./autorandr.nix
    ./obs

@@ -7,13 +7,14 @@
 {
   programs = {
     zsh = {
-      enable = false;
+      enable = true;
       dotDir = ".config/zsh_nix";
-      enableAutosuggestions = true;             # Auto suggest options and highlights syntact, searches in history for options
+      enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
+      enableCompletion = true;
       history.size = 10000;
 
-      oh-my-zsh = {                             # Extra plugins for zsh
+      oh-my-zsh = {
         enable = true;
         plugins = [ "git" ];
         custom = "$HOME/.config/zsh_nix/custom";
