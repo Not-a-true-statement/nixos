@@ -20,16 +20,26 @@
         custom = "$HOME/.config/zsh_nix/custom";
       };
 
-      initExtra = ''                            # Zsh theme
-        # Spaceship
-        source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
-        autoload -U promptinit; promptinit
-#       source $HOME/.config/shell/shell_init
-        # Hook direnv
-#       emulate zsh -c "$(direnv hook zsh)"
-        # Swag
-        pfetch                                  # Show fetch logo on terminal start
-      '';
+      shellAliases = {
+        audiocarla = "carla --cnprefix Microphone ~/.config/audio/carla/rack.carxp & disown";
+        screamaudio = "scream -o pulse -u -p 4011 & disown";
+      };
+
+      initExtra =
+''  # Zsh theme
+# Spaceship
+source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
+autoload -U promptinit; promptinit
+# source $HOME/.config/shell/shell_init
+# Hook direnv
+# emulate zsh -c "$(direnv hook zsh)"
+# Swag
+# pfetch # Show fetch logo on terminal start
+
+# NIXOS SCRIPTS
+export PATH=$PATH:~/.setup/scripts
+#carla --cnprefix Microphone ~/.config/audio/carla/rack.carxp & disown
+'';
     };
   };
 }

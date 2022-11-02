@@ -1,5 +1,4 @@
 { config, lib, pkgs, inputs, user, location, ... }:
-
 {
   # System User
   users.users.${user} = {
@@ -20,7 +19,10 @@
       "adbusers"
       "i2c"
     ];
-    shell = pkgs.bash;                       # Default shell
+    
+    # Default shell
+    shell = pkgs.zsh;
+    # shell = pkgs.bash;
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
 
@@ -52,6 +54,29 @@
     })
   ];
 
+  nixpkgs.overlays = [
+
+  # (self: super: {
+  #     ndi = super.ndi.overrideAttrs (
+  #       _: {
+  #         src = builtins.fetchTarball {
+  #           url = "https://downloads.ndi.tv/SDK/NDI_SDK_Linux/Install_NDI_SDK_v5_Linux.tar.gz"; 
+  #           sha256 = "0j6a33dyi96gf3yzxgg08h10ki0xfpc9fcs7jmk77s5pckf0n671";
+  #         };
+  #       }
+  #     );
+  # })
+
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: { src = builtins.fetchTarball {
+          url = "https://discord.com/api/download?platform=linux&format=tar.gz"; 
+          sha256 = "1pw9q4290yn62xisbkc7a7ckb1sa5acp91plp2mfpg7gp7v60zvz";
+        };}
+      );
+    })
+  ];
+
   environment = {
     variables = {
       TERMINAL = "alacritty";
@@ -74,6 +99,7 @@
       # Filesystem Support
       ntfs3g            # NTFS
       exfat             # exFat
+      # ndi
     ];
   };
 

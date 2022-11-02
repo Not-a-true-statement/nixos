@@ -8,7 +8,7 @@
     (import ../modules/editors)   ++
     (import ../modules/programs)  ++
     (import ../modules/services)  ++
-    # (import ../modules/shell)     ++
+    (import ../modules/shell)     ++
     [(import ../modules/themes/default/homeconfig.nix)];
 
   # User
@@ -49,13 +49,15 @@
 
     # Apps
     appimage-run              # Runs AppImages on NixOS
-    firefox                   # Browser
+    firefox-esr               # Browser
     google-chrome             # Browser
     thunderbird               # Email client
     remmina                   # XRDP & VNC Client
     deluge                    # Torrent program
     libreoffice               # Office suite
     barrier                   # Over network keyboard and mouse share
+    discord                   # Social media
+    spotify                   # Music streaming client
 
     # File Management
     okular                    # PDF viewer

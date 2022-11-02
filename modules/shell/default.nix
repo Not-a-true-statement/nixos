@@ -12,5 +12,5 @@
 
 [
   ./zsh.nix
-  # ./bash.nix
+  ./bash.nix
 ]

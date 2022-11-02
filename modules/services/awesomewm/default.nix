@@ -33,9 +33,4 @@
     #     source = ./config;
     #     target = "./.config/awesome";
     # };
-
-    # xdg.portal = {                                  # Required for flatpak with windowmanagers
-    #     enable = true;
-    #     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    # };
 }

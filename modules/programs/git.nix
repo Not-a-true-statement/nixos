@@ -7,4 +7,8 @@
     userEmail = "drunkcenter@live.com";
     userName = "Not-a-true-statement";
   };
+
+# home.extraProfileCommands = ''
+#     ${pkgs.betterdiscordctl}/bin/betterdiscordctl install
+# '';
 }
