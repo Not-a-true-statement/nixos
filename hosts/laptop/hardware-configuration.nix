@@ -26,9 +26,14 @@
     { device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
     };
+  
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/home";
+      fsType = "ext4";
+    };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6E06-6221";
+    { device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
 

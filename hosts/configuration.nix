@@ -56,17 +56,6 @@
 
   nixpkgs.overlays = [
 
-  # (self: super: {
-  #     ndi = super.ndi.overrideAttrs (
-  #       _: {
-  #         src = builtins.fetchTarball {
-  #           url = "https://downloads.ndi.tv/SDK/NDI_SDK_Linux/Install_NDI_SDK_v5_Linux.tar.gz"; 
-  #           sha256 = "0j6a33dyi96gf3yzxgg08h10ki0xfpc9fcs7jmk77s5pckf0n671";
-  #         };
-  #       }
-  #     );
-  # })
-
     (self: super: {
       discord = super.discord.overrideAttrs (
         _: { src = builtins.fetchTarball {
@@ -99,7 +88,6 @@
       # Filesystem Support
       ntfs3g            # NTFS
       exfat             # exFat
-      # ndi
     ];
   };
 

@@ -32,7 +32,6 @@
   xsession = { initExtra = ''systemctl --user start setxkbmap.service xplugd.service''; enable = true; };
 
   # User packages
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # Terminal
     btop                      # Resource Manager
@@ -49,7 +48,7 @@
 
     # Apps
     appimage-run              # Runs AppImages on NixOS
-    firefox-esr               # Browser
+    firefox-esr               # Browser (Long term support version) NOTE: This version work with Discord
     google-chrome             # Browser
     thunderbird               # Email client
     remmina                   # XRDP & VNC Client

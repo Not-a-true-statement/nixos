@@ -1,16 +1,3 @@
-#
-#  These are the different profiles that can be used when building NixOS.
-#
-#  flake.nix 
-#   └─ ./hosts  
-#       ├─ default.nix *
-#       ├─ configuration.nix
-#       ├─ home.nix
-#       └─ ./desktop OR ./laptop OR ./vm
-#            ├─ ./default.nix
-#            └─ ./home.nix 
-#
-
 { lib, inputs, nixpkgs, home-manager, user, location, ... }:
 
 let
@@ -33,7 +20,7 @@ in
 
       home-manager.nixosModules.home-manager {              # Home-Manager module that is used.
         home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = false;
+        home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };  # Pass flake variable
         home-manager.users.${user} = {
           imports = [(import ./home.nix)] ++ [(import ./desktop/home.nix)];
@@ -51,7 +38,7 @@ in
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = false;
+        home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
           imports = [(import ./home.nix)] ++ [(import ./laptop/home.nix)];
@@ -69,7 +56,7 @@ in
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = false;
+        home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; }; 
         home-manager.users.${user} = {
           imports = [(import ./home.nix)] ++ [(import ./vm/home.nix)];

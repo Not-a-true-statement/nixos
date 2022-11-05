@@ -30,7 +30,7 @@
         # };                                        # Cursor is declared under home.pointerCursor
     };
 
-        xresources = {
+    xresources = {
         properties = {
             "Xft.dpi" = 96;
             "Xcursor.size" = 32;

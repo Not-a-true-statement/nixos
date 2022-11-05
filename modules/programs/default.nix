@@ -5,4 +5,5 @@
    ./obs
    ./rofi.nix
    #./games.nix
+   # ./discord
 ]

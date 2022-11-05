@@ -22,8 +22,8 @@
 {
   imports =                                 # For now, if applying to other system, swap files
     [(import ./hardware-configuration.nix)] ++            # Current system hardware config @ /etc/nixos/hardware-configuration.nix
-    [(import ../../modules/desktop/hyprland/default.nix)] ++      # Window Manager
-    [(import ../../modules/desktop/virtualisation/docker.nix)] ++  # Docker
+    # [(import ../../modules/desktop/hyprland/default.nix)] ++      # Window Manager
+    # [(import ../../modules/desktop/virtualisation/docker.nix)] ++  # Docker
     (import ../../modules/hardware);                      # Hardware devices
 
   boot = {                                  # Boot options
@@ -40,22 +40,22 @@
         devices = [ "nodev" ];
         efiSupport = true;
         useOSProber = true;                 # Find all boot options
-        configurationLimit = 2;
+        configurationLimit = 5;
       };
       timeout = 1;                          # Grub auto select time
     };
   };
 
-  hardware.sane = {                           # Used for scanning with Xsane
-    enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
-  };
+  # hardware.sane = {                           # Used for scanning with Xsane
+  #   enable = true;
+  #   extraBackends = [ pkgs.sane-airscan ];
+  # };
 
-  environment = {
-    systemPackages = with pkgs; [
-      simple-scan
-    ];
-  };
+  # environment = {
+  #   systemPackages = with pkgs; [
+  #     simple-scan
+  #   ];
+  # };
 
   programs = {                              # No xbacklight, this is the alterantive
     light.enable = true;
@@ -110,8 +110,8 @@
   };
 
   #temporary bluetooth fix
-  systemd.tmpfiles.rules = [
-    "d /var/lib/bluetooth 700 root root - -"
-  ];
-  systemd.targets."bluetooth".after = ["systemd-tmpfiles-setup.service"];
+  # systemd.tmpfiles.rules = [
+  #   "d /var/lib/bluetooth 700 root root - -"
+  # ];
+  # systemd.targets."bluetooth".after = ["systemd-tmpfiles-setup.service"];
 }

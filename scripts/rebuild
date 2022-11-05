@@ -1,1 +1,3 @@
-sudo nixos-rebuild switch --flake ~/.setup#desktop
+BASEDIR=$(dirname $0)
+sudo nixos-rebuild switch --flake ${BASEDIR}/../.#desktop
+
